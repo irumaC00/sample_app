@@ -2,12 +2,12 @@ require 'spec_helper'
 
 describe "Static pages" do
   describe "Home page" do
-    it "should have the h1 'Sample App'" do
+    it "should have the h1 'Home'" do
       # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
       visit '/static_pages/home'
-      page.should have_selector('h1', text: 'Sample App')
+      page.should have_selector('h1', text: 'Home')
     end
-    it "should have the title 'Sample App'" do
+    it "should have the title 'Home'" do
       # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
       visit '/static_pages/home'
       page.should have_selector('title', text: "Sample App | Home")
