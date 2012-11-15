@@ -3,6 +3,23 @@ require 'spec_helper'
 describe "Static pages" do
 
   let(:t) {'Sample App | '}
+
+  describe "Index page" do
+    it "should have the h1 'Index Page'" do
+      visit '/static_pages/index'
+      page.should have_selector('h1', text: 'Index Page')
+    end
+    it "should have the base title" do
+      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
+      visit '/static_pages/index'
+      page.should have_selector('title', text: "Sample App")
+    end
+    it "should not have a custom page title" do
+      visit '/static_pages/index'
+      page.should_not have_selector('title', text: '#{t}Index')
+    end
+  end
+
   describe "Home page" do
     it "should have the h1 'Home'" do
       # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
@@ -21,7 +38,7 @@ describe "Static pages" do
   end
 
   describe "Help page" do
-  	it "should have the h1 'Help'" do
+  	it "should have the h1 'Sample App | Help'" do
   	  visit '/static_pages/help'
   	  page.should have_selector('h1', text: 'Help')
   	end
@@ -32,7 +49,7 @@ describe "Static pages" do
   end
 
   describe "About page" do
-  	it "should have the h1 'About us'" do
+  	it "should have the h1 'Sample App | About us'" do
   	  visit '/static_pages/about'
   	  page.should have_selector('h1', text: 'About Us')
   	end
@@ -47,7 +64,7 @@ describe "Static pages" do
   	  visit '/static_pages/contact'
   	  page.should have_selector('h1', text: 'Contact')
   	end
-  	it "should have the title 'Contact'" do
+  	it "should have the title 'Sample App | Contact'" do
   	  visit '/static_pages/contact'
   	  page.should have_selector('title', text: "#{t}Contact")
   	end
