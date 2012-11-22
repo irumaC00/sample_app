@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'
-gem 'bootstrap-sass', '2.1'
+gem 'bootstrap-sass', '2.1.1'
 gem 'bcrypt-ruby', '3.0.1'
 
 # Bundle edge Rails instead:
@@ -25,7 +25,7 @@ group :assets do
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
-
+ 
   gem 'uglifier', '1.2.3'
 end
 
@@ -38,6 +38,8 @@ group :test do
   gem 'win32console', '1.3.0'
   gem 'wdm', '0.0.3'
   gem 'factory_girl_rails', '4.1.0'
+  gem 'cucumber-rails', '1.2.1', require: false
+  gem 'database_cleaner', '0.7.0'
 end
 
 group :production do
